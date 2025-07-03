@@ -5,7 +5,7 @@ currently requires changing the values inside the code manually but will be upda
 # Proof of formula used
 \\\\ The original equations I found on the website with adress
 https://www.pw.live/school-prep/exams/quadratic-interpolation-formula
-y = y 0 × L 0 (x) + y 1 × L 1 (x) + y 2 × L 2 (x))) <sup>2</sup> <sub>0</sub> <sub>1</sub>
+y = y 0 × L 0 (x) + y 1 × L 1 (x) + y 2 × L 2 (x)))
 Where,
 y<sub>0</sub>, y<sub>1</sub>, and y<sub>2</sub> are “y-value” of the three known data point,
 x<sub>0</sub>, x<sub>1</sub>, and x<sub>2</sub> are “x-value” of the three known data point, and
