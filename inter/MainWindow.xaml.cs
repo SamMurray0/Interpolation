@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,22 +31,55 @@ namespace inter
 
         public double Interpolate( double f1 , double f2 , double f3 )
         {
-            double a, b, c, x=0;
-//c = 200
-			c = f2;
-			//a = ((20 + 200) - 400)/2 = -90 
-            a = ((f1 + f3) - 2.0*c)/2.0;
-			//b = 200 +90 - 200 = 90
-            b = f3 - a - c;
-			
-            x =  -b / (2 * a);
+           
 
-			double x1 = (f1 - f3) / (2 * (f1 - 2 * f2 + f3));
+			double x = (f1 - f3) / (2 * (f1 - 2 * f2 + f3));
 
 			Console.WriteLine(x);
-			Console.WriteLine(x1);
+			
 
 			return x;
         }
-    }
+
+		private void y0_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			TypeConverter inputcheck = TypeDescriptor.GetConverter(typeof(double));
+			if (inputcheck.IsValid(y0.Text) && inputcheck.IsValid(y1.Text) && inputcheck.IsValid(y2.Text))
+			{
+				double res = Interpolate(Convert.ToDouble(y0.Text), Convert.ToDouble(y1.Text), Convert.ToDouble(y2.Text));
+				Result.Dispatcher.Invoke(new Action(delegate
+				{
+					Result.Text = res.ToString();
+				}));
+			}
+			
+			
+		}
+
+		private void y1_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			TypeConverter inputcheck = TypeDescriptor.GetConverter(typeof(double));
+			if (inputcheck.IsValid(y0.Text) && inputcheck.IsValid(y1.Text) && inputcheck.IsValid(y2.Text))
+			{
+				double res = Interpolate(Convert.ToDouble(y0.Text), Convert.ToDouble(y1.Text), Convert.ToDouble(y2.Text));
+				Result.Dispatcher.Invoke(new Action(delegate
+				{
+					Result.Text = res.ToString();
+				}));
+			}
+		}
+
+		private void y2_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			TypeConverter inputcheck = TypeDescriptor.GetConverter(typeof(double));
+			if (inputcheck.IsValid(y0.Text) && inputcheck.IsValid(y1.Text) && inputcheck.IsValid(y2.Text))
+			{
+				double res = Interpolate(Convert.ToDouble(y0.Text), Convert.ToDouble(y1.Text), Convert.ToDouble(y2.Text));
+				Result.Dispatcher.Invoke(new Action(delegate
+				{
+					Result.Text = res.ToString();
+				}));
+			}
+		}
+	}
 }
