@@ -4,7 +4,12 @@ using System.Windows;
 using System.Windows.Controls;
 
 namespace inter
+
+
+
 {
+
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -16,9 +21,12 @@ namespace inter
         public MainWindow()
         {
             InitializeComponent();
+			double[] dataX = { 1, 2, 3, 4, 5 };
+			double[] dataY = { 1, 4, 9, 16, 25 };
+			WpfPlot1.Plot.Add.Scatter(dataX, dataY);
+			WpfPlot1.Refresh();
 
-
-        }
+		}
 		/// <summary>
 		/// find the x value of the peak of the quadratic curve
 		/// </summary>
@@ -48,6 +56,12 @@ namespace inter
 				Result.Dispatcher.Invoke(new Action(delegate
 				{
 					Result.Text = res.ToString();
+					WpfPlot1.Reset();
+					double[] dataX = { -1, 0, 1 };
+					double[] dataY = { Convert.ToDouble(y0.Text), Convert.ToDouble(y1.Text), Convert.ToDouble(y2.Text) };
+					var sp = WpfPlot1.Plot.Add.Scatter(dataX, dataY);
+					sp.Smooth = true;
+					WpfPlot1.Refresh();
 				}));
 			}
 			
@@ -65,6 +79,12 @@ namespace inter
 				Result.Dispatcher.Invoke(new Action(delegate
 				{
 					Result.Text = res.ToString();
+					WpfPlot1.Reset();
+					double[] dataX = { -1, 0, 1 };
+					double[] dataY = { Convert.ToDouble(y0.Text), Convert.ToDouble(y1.Text), Convert.ToDouble(y2.Text) };
+					var sp = WpfPlot1.Plot.Add.Scatter(dataX, dataY);
+					sp.Smooth = true;
+					WpfPlot1.Refresh();
 				}));
 			}
 		}
@@ -80,8 +100,17 @@ namespace inter
 				Result.Dispatcher.Invoke(new Action(delegate
 				{
 					Result.Text = res.ToString();
+					WpfPlot1.Reset();
+					double[] dataX = { -1, 0, 1 };
+					double[] dataY = { Convert.ToDouble(y0.Text), Convert.ToDouble(y1.Text), Convert.ToDouble(y2.Text) };
+					var sp = WpfPlot1.Plot.Add.Scatter(dataX, dataY);
+					sp.Smooth = true;
+					WpfPlot1.Refresh();
 				}));
 			}
 		}
 	}
+	
+
+
 }

@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:inter"
+		xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
 	<Grid>
 
 		<TextBox x:Name="y0" HorizontalAlignment="Left" Margin="33,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"   Width="120" TextChanged="y0_TextChanged"/>
@@ -16,9 +17,8 @@
 		<TextBlock x:Name="y2label" HorizontalAlignment="Left" Margin="33,116,0,0" TextWrapping="Wrap" Text="y2" VerticalAlignment="Top"   Width="120"/>
 		<TextBlock x:Name="Result" HorizontalAlignment="Left" Margin="33,207,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"   Width="120"/>
 		<TextBlock x:Name="xMaxLabel" HorizontalAlignment="Left" Margin="33,186,0,0" TextWrapping="Wrap" Text="xMax" VerticalAlignment="Top"   Width="120"/>
-
-
-
+		<Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="345,36,0,0" VerticalAlignment="Top" Width="100" Source="resources/quadratic.png"/>
+		<ScottPlot:WpfPlot x:Name="WpfPlot1" HorizontalAlignment="Left" Height="179" Margin="254,36,0,0" VerticalAlignment="Top" Width="354" />
 
 	</Grid>
 </Window>
