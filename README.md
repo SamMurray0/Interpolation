@@ -27,11 +27,11 @@ L2 (x) = (x – x<sub>0</sub>) × (x – x<sub>1</sub>) / ((x2 – x<sub>0</sub>
 
 Lagrange basis polynomials equation from website, substituting in -1, 0 and 1 for x<sub>0</sub>, x<sub>1</sub> and x<sub>2</sub> gives 
 
-y = y<sub>0</sub>*(x<sup>2</sup> -x)/2 - y<sub>1</sub>*(x<sup>2</sup> +1)/1 + y<sub>2</sub>*(x<sup>2</sup> +x)/2
+y = y<sub>0</sub>*(x<sup>2</sup> -x)/2 - y<sub>1</sub>*(x<sup>2</sup> -1)/1 + y<sub>2</sub>*(x<sup>2</sup> +x)/2
 			  
 Which expands to
 
-y = x<sup>2</sup> (y<sub>0</sub>/2 - y<sub>1</sub> + y<sub>2</sub>/2) +x (-y<sub>0</sub>/2 + y<sub>2</sub>/2) -y<sub>1</sub>
+y = x<sup>2</sup> (y<sub>0</sub>/2 - y<sub>1</sub> + y<sub>2</sub>/2) +x (-y<sub>0</sub>/2 + y<sub>2</sub>/2) +y<sub>1</sub>
 			  
 differentiate to find rate of change of y by x
 
