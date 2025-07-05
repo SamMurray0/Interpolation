@@ -25,7 +25,7 @@ L1 (x) = (x – x<sub>0</sub>) × (x – x<sub>2</sub>) / ((x<sub>1</sub> – x<
 
 L2 (x) = (x – x<sub>0</sub>) × (x – x<sub>1</sub>) / ((x2 – x<sub>0</sub> ) × (x<sub>2</sub> – x<sub>1</sub>))
 
-Lagrange basis polynomials equation from website, substituting in -1, 0 and 1 for x<sub>0</sub>, X<sub>1</sub> and X<sub>2</sub> gives 
+Lagrange basis polynomials equation from website, substituting in -1, 0 and 1 for x<sub>0</sub>, x<sub>1</sub> and x<sub>2</sub> gives 
 
 y = y<sub>0</sub>*(x<sup>2</sup> -x)/2 - y<sub>1</sub>*(x<sup>2</sup> +1)/1 + y<sub>2</sub>*(x<sup>2</sup> +x)/2
 			  
