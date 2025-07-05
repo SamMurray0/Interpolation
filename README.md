@@ -10,7 +10,7 @@ https://www.pw.live/school-prep/exams/quadratic-interpolation-formula
 
 The value of y at point x given 3 points on the quadratic curve is given by this equation:
 
-y = y 0 × L 0 (x) + y 1 × L 1 (x) + y 2 × L 2 (x)))
+y = y<sub>0</sub> × L<sub>0</sub>(x) + y<sub>1</sub> × L<sub>1</sub>(x) + y<sub>2</sub> × L<sub>2</sub>(x)))
 
 Where,
 
