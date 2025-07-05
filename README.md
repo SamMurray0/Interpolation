@@ -1,5 +1,7 @@
 # Description
-Currently contains 2 different funtions to calculate the peak of a quadratic line given the y values at X= -1, 0 and 1
+Program to calculate x coordinate of the peak of a quadratic line given the y values at X= -1, 0 and 1
+
+To use the program enter the y values in the boxes labeled y0, y1 and y2 and the x value will be printed out on the screen
 
 currently requires changing the values inside the code manually but will be updated with a UI
 # Proof of formula used
