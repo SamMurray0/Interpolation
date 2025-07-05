@@ -21,10 +21,7 @@ namespace inter
         public MainWindow()
         {
             InitializeComponent();
-			double[] dataX = { 1, 2, 3, 4, 5 };
-			double[] dataY = { 1, 4, 9, 16, 25 };
-			WpfPlot1.Plot.Add.Scatter(dataX, dataY);
-			WpfPlot1.Refresh();
+			
 
 		}
 		/// <summary>
@@ -38,7 +35,7 @@ namespace inter
         {
            
 
-			double x = (y0 - y2) / (2 * (y0 - 2 * y1 + y1));
+			double x = (y0 - y2) / (2 * (y0 - 2 * y1 + y2));
 
 			Console.WriteLine(x);
 			
@@ -63,9 +60,9 @@ namespace inter
 					sp.Smooth = true;
 					WpfPlot1.Refresh();
 				}));
+
+
 			}
-			
-			
 		}
 		/// <summary>
 		/// calls Interpolate when text is changed and all inputs are valid doubles and then updates the output text
