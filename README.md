@@ -1,10 +1,10 @@
 # Description
-Program to calculate x coordinate of the peak of a quadratic line given the y values at X= -1, 0 and 1
+Program to calculate x coordinate of the peak of a quadratic line given the y values at X= -1, 0 and 1.
 
-To use the program enter the y values in the boxes labeled y0, y1 and y2 and the x value will be printed out on the screen
+To use the program enter the y values in the boxes labeled y0, y1 and y2 and the x value will be printed out on the screen.
 
 # Proof of formula used
-The original equations I found on the website with adress
+The original equations I found on this website:
 
 https://www.pw.live/school-prep/exams/quadratic-interpolation-formula
 
