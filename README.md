@@ -1,15 +1,16 @@
 # Description
-Program to calculate x coordinate of the peak of a quadratic line given the y values at X= -1, 0 and 1
+Program to calculate x coordinate of the peak of a quadratic line given the y values at X= -1, 0 and 1.
 
-To use the program enter the y values in the boxes labeled y0, y1 and y2 and the x value will be printed out on the screen
+To use the program enter the y values in the boxes labeled y0, y1 and y2 and the x value will be printed out on the screen.
 
-currently requires changing the values inside the code manually but will be updated with a UI
-# Proof of formula used
-The original equations I found on the website with adress
+# Derivation of formula used
+The original equations I found on this website:
 
 https://www.pw.live/school-prep/exams/quadratic-interpolation-formula
 
-y = y 0 × L 0 (x) + y 1 × L 1 (x) + y 2 × L 2 (x)))
+The value of y at point x given 3 points on the quadratic curve is given by this equation:
+
+y = y<sub>0</sub> × L<sub>0</sub>(x) + y<sub>1</sub> × L<sub>1</sub>(x) + y<sub>2</sub> × L<sub>2</sub>(x)))
 
 Where,
 
@@ -24,11 +25,11 @@ L1 (x) = (x – x<sub>0</sub>) × (x – x<sub>2</sub>) / ((x<sub>1</sub> – x<
 
 L2 (x) = (x – x<sub>0</sub>) × (x – x<sub>1</sub>) / ((x2 – x<sub>0</sub> ) × (x<sub>2</sub> – x<sub>1</sub>))
 
-Lagrange basis polynomials equation from website, substituting in -1, 0 and 1 for x<sub>0</sub>, X<sub>1</sub> and X<sub>2</sub> 
+Lagrange basis polynomials equation from website, substituting in -1, 0 and 1 for x<sub>0</sub>, x<sub>1</sub> and x<sub>2</sub> gives 
 
 y = y<sub>0</sub>*(x<sup>2</sup> -x)/2 - y<sub>1</sub>*(x<sup>2</sup> +1)/1 + y<sub>2</sub>*(x<sup>2</sup> +x)/2
 			  
-Expands to
+Which expands to
 
 y = x<sup>2</sup> (y<sub>0</sub>/2 - y<sub>1</sub> + y<sub>2</sub>/2) +x (-y<sub>0</sub>/2 + y<sub>2</sub>/2) -y<sub>1</sub>
 			  
