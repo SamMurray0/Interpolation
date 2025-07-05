@@ -21,26 +21,35 @@ namespace inter
     /// </summary>
     public partial class MainWindow : Window
     {
+		/// <summary>
+		/// initialise the window
+		/// </summary>
         public MainWindow()
         {
             InitializeComponent();
 
-            double res = Interpolate(30, 189, 125);
 
         }
-
-        public double Interpolate( double f1 , double f2 , double f3 )
+		/// <summary>
+		/// find the x value of the peak of the quadratic curve
+		/// </summary>
+		/// <param name="y0">value of y at x=-1</param>
+		/// <param name="y1">value of y at x=0</param>
+		/// <param name="y2">value of y at x=1</param>
+		/// <returns>the x value of the peak</returns>
+		public double Interpolate( double y0 , double y1 , double y2 )
         {
            
 
-			double x = (f1 - f3) / (2 * (f1 - 2 * f2 + f3));
+			double x = (y0 - y2) / (2 * (y0 - 2 * y1 + y1));
 
 			Console.WriteLine(x);
 			
-
 			return x;
         }
-
+		/// <summary>
+		/// calls Interpolate when text is changed and all inputs are valid doubles and then updates the output text
+		/// </summary>
 		private void y0_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			TypeConverter inputcheck = TypeDescriptor.GetConverter(typeof(double));
@@ -55,7 +64,9 @@ namespace inter
 			
 			
 		}
-
+		/// <summary>
+		/// calls Interpolate when text is changed and all inputs are valid doubles and then updates the output text
+		/// </summary>
 		private void y1_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			TypeConverter inputcheck = TypeDescriptor.GetConverter(typeof(double));
@@ -68,7 +79,9 @@ namespace inter
 				}));
 			}
 		}
-
+		/// <summary>
+		/// calls Interpolate when text is changed and all inputs are valid doubles and then updates the output text
+		/// </summary>
 		private void y2_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			TypeConverter inputcheck = TypeDescriptor.GetConverter(typeof(double));

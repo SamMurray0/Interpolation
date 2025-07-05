@@ -14,7 +14,7 @@
 		<TextBlock x:Name="y0label" HorizontalAlignment="Left" Margin="33,28,0,0" TextWrapping="Wrap" Text="y0" VerticalAlignment="Top"   Width="120"/>
 		<TextBlock x:Name="y1label" HorizontalAlignment="Left" Margin="33,77,0,0" TextWrapping="Wrap" Text="y1" VerticalAlignment="Top"   Width="120"/>
 		<TextBlock x:Name="y2label" HorizontalAlignment="Left" Margin="33,116,0,0" TextWrapping="Wrap" Text="y2" VerticalAlignment="Top"   Width="120"/>
-		<TextBlock x:Name="Result" HorizontalAlignment="Left" Margin="293,31,0,0" TextWrapping="Wrap" Text="test" VerticalAlignment="Top"   Width="120"/>
+		<TextBlock x:Name="Result" HorizontalAlignment="Left" Margin="293,31,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"   Width="120"/>
 
 
 
