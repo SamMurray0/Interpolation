@@ -3,7 +3,7 @@ Program to calculate x coordinate of the peak of a quadratic line given the y va
 
 To use the program enter the y values in the boxes labeled y0, y1 and y2 and the x value will be printed out on the screen.
 
-# Proof of formula used
+# Derivation of formula used
 The original equations I found on this website:
 
 https://www.pw.live/school-prep/exams/quadratic-interpolation-formula
