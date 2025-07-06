@@ -37,7 +37,6 @@ namespace inter
 
 			double x = (y0 - y2) / (2 * (y0 - 2 * y1 + y2));
 
-			Console.WriteLine(x);
 			
 			return x;
         }
@@ -59,7 +58,7 @@ namespace inter
 			}
 		}
 		/// <summary>
-		/// calls Interpolate when text is changed and all inputs are valid doubles and then updates the output text
+		/// calls update function when text is changed and all text boxes contain valid doubles
 		/// </summary>
 		private void y1_TextChanged(object sender, TextChangedEventArgs e)
 		{
@@ -89,24 +88,26 @@ namespace inter
 				
 			}
 		}
-
+		/// <summary>
+		/// function that calls interpolate and updates the graph
+		/// </summary>
+		/// <param name="y0">y value at x=-1</param>
+		/// <param name="y1">y value at x=0</param>
+		/// <param name="y2">y value at x=1</param>
 		private void update(double y0, double y1, double y2)
 		{
 			double x = Interpolate(y0, y1, y2);
 			Result.Text = x.ToString();
 			WpfPlot1.Reset();
 
-			double ymax = (x * x * (y0 / 2 - y1 + y2 / 2) + x * (-y0 / 2 + y2 / 2) + y1);
+			double ymax = x * x * (y0 / 2 - y1 + y2 / 2) + x * (-y0 / 2 + y2 / 2) + y1;
 			
 			double[] dataX = { -1, 0, 1, x };
 
 			Array.Sort(dataX);
 			int arrayPos = Array.IndexOf(dataX, x);
 			double[] dataY = { y0, y1, y2, ymax };
-			for (int i = 0; i < 4; i++)
-			{
-				Console.WriteLine(dataY[i]);
-			}
+			
 
 			double nextVal = ymax;
 			for (int i = arrayPos; i < 4; i++)
