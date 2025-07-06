@@ -4,11 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 
 namespace inter
-
-
-
 {
-
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -21,9 +17,8 @@ namespace inter
         public MainWindow()
         {
             InitializeComponent();
-			
-
 		}
+
 		/// <summary>
 		/// find the x value of the peak of the quadratic curve
 		/// </summary>
@@ -33,15 +28,12 @@ namespace inter
 		/// <returns>the x value of the peak</returns>
 		public double Interpolate( double y0 , double y1 , double y2 )
         {
-           
-
 			double x = (y0 - y2) / (2 * (y0 - 2 * y1 + y2));
-
-			
 			return x;
         }
+
 		/// <summary>
-		/// calls Interpolate when text is changed and all inputs are valid doubles and then updates the output text
+		/// calls update function when text is changed and all text boxes contain valid doubles
 		/// </summary>
 		private void Y0_TextChanged(object sender, TextChangedEventArgs e)
 		{
@@ -52,11 +44,9 @@ namespace inter
 				double numy1 = Convert.ToDouble(y1.Text);
 				double numy2 = Convert.ToDouble(y2.Text);
 				Update(numy0, numy1, numy2);
-
-
-
 			}
 		}
+
 		/// <summary>
 		/// calls update function when text is changed and all text boxes contain valid doubles
 		/// </summary>
@@ -72,8 +62,9 @@ namespace inter
 
 			}
 		}
+
 		/// <summary>
-		/// calls Interpolate when text is changed and all inputs are valid doubles and then updates the output text
+		/// calls update function when text is changed and all text boxes contain valid doubles
 		/// </summary>
 		private void Y2_TextChanged(object sender, TextChangedEventArgs e)
 		{
@@ -85,9 +76,9 @@ namespace inter
 				double numy2 = Convert.ToDouble(y2.Text);
 				Update(numy0, numy1, numy2);
 				
-				
 			}
 		}
+
 		/// <summary>
 		/// function that calls interpolate and updates the graph
 		/// </summary>
@@ -108,12 +99,10 @@ namespace inter
 			int arrayPos = Array.IndexOf(dataX, x);
 			double[] dataY = { y0, y1, y2, ymax };
 			
-
 			double nextVal = ymax;
 			for (int i = arrayPos; i < 4; i++)
 			{
 				(dataY[i], nextVal) = (nextVal, dataY[i]);
-				
 			}
 
 			var sp = WpfPlot1.Plot.Add.Scatter(dataX, dataY);
@@ -122,6 +111,4 @@ namespace inter
 		}
 	}
 	
-
-
 }
