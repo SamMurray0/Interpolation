@@ -53,36 +53,35 @@ namespace inter
 				double numy1 = Convert.ToDouble(y1.Text);
 				double numy2 = Convert.ToDouble(y2.Text);
 				double res = Interpolate(numy0, numy1, numy2);
-				Result.Dispatcher.Invoke(new Action(delegate
-				{
-					Result.Text = res.ToString();
-					WpfPlot1.Reset();
-
-					double ymax = (res * res * (numy0 / 2 - numy1 + numy2 / 2) + res * (-numy0/2 + numy2/2) + numy1);
-					Console.WriteLine("x = " + res);
-					Console.WriteLine("y = " + ymax);
-					double[] dataX = { -1, 0, 1, res};
-					
-					Array.Sort(dataX);
-					int arrayPos = Array.IndexOf(dataX, res);
-					double[] dataY = { numy0, numy1, numy2, ymax };
-				    for (int i = 0; i < 4; i++)
-					{
-						Console.WriteLine(dataY[i]);
-					}
 				
-					double nextVal = ymax;
-					for(int i = arrayPos; i< 4; i++)
-					{
-						double temp = dataY[i];
-						dataY[i] = nextVal;
-						nextVal = temp;
-					}
-					
-					var sp = WpfPlot1.Plot.Add.Scatter(dataX, dataY);
-					sp.Smooth = true;
-					WpfPlot1.Refresh();
-				}));
+				Result.Text = res.ToString();
+				WpfPlot1.Reset();
+
+				double ymax = (res * res * (numy0 / 2 - numy1 + numy2 / 2) + res * (-numy0/2 + numy2/2) + numy1);
+				Console.WriteLine("x = " + res);
+				Console.WriteLine("y = " + ymax);
+				double[] dataX = { -1, 0, 1, res};
+				
+				Array.Sort(dataX);
+				int arrayPos = Array.IndexOf(dataX, res);
+				double[] dataY = { numy0, numy1, numy2, ymax };
+				for (int i = 0; i < 4; i++)
+				{
+					Console.WriteLine(dataY[i]);
+				}
+				
+				double nextVal = ymax;
+				for(int i = arrayPos; i< 4; i++)
+				{
+					double temp = dataY[i];
+					dataY[i] = nextVal;
+					nextVal = temp;
+				}
+				
+				var sp = WpfPlot1.Plot.Add.Scatter(dataX, dataY);
+				sp.Smooth = true;
+				WpfPlot1.Refresh();
+				
 
 
 			}
@@ -99,34 +98,33 @@ namespace inter
 				double numy1 = Convert.ToDouble(y1.Text);
 				double numy2 = Convert.ToDouble(y2.Text);
 				double res = Interpolate(numy0, numy1, numy2); 
-				Result.Dispatcher.Invoke(new Action(delegate
-				{
-					Result.Text = res.ToString();
-					WpfPlot1.Reset();
-					double ymax = (res * res * (numy0 / 2 - numy1 + numy2 / 2) + res * (-numy0 / 2 + numy2 / 2) + numy1);
 				
-					Console.WriteLine("x = " + res);
-					Console.WriteLine("y = " + ymax);
-					double[] dataX = { -1, 0, 1, res };
+				Result.Text = res.ToString();
+				WpfPlot1.Reset();
+				double ymax = (res * res * (numy0 / 2 - numy1 + numy2 / 2) + res * (-numy0 / 2 + numy2 / 2) + numy1);
+				
+				Console.WriteLine("x = " + res);
+				Console.WriteLine("y = " + ymax);
+				double[] dataX = { -1, 0, 1, res };
 
-					Array.Sort(dataX);
-					int arrayPos = Array.IndexOf(dataX, res);
-					double[] dataY = { numy0, numy1, numy2, ymax };
-					for (int i = 0; i < 4; i++)
-					{
-						Console.WriteLine(dataY[i]);
-					}
-					double nextVal = ymax;
-					for (int i = arrayPos; i < 4; i++)
-					{
-						double temp = dataY[i];
-						dataY[i] = nextVal;
-						nextVal = temp;
-					}
-					var sp = WpfPlot1.Plot.Add.Scatter(dataX, dataY);
-					sp.Smooth = true;
-					WpfPlot1.Refresh();
-				}));
+				Array.Sort(dataX);
+				int arrayPos = Array.IndexOf(dataX, res);
+				double[] dataY = { numy0, numy1, numy2, ymax };
+				for (int i = 0; i < 4; i++)
+				{
+					Console.WriteLine(dataY[i]);
+				}
+				double nextVal = ymax;
+				for (int i = arrayPos; i < 4; i++)
+				{
+					double temp = dataY[i];
+					dataY[i] = nextVal;
+					nextVal = temp;
+				}
+				var sp = WpfPlot1.Plot.Add.Scatter(dataX, dataY);
+				sp.Smooth = true;
+				WpfPlot1.Refresh();
+				
 			}
 		}
 		/// <summary>
@@ -141,33 +139,32 @@ namespace inter
 				double numy1 = Convert.ToDouble(y1.Text);
 				double numy2 = Convert.ToDouble(y2.Text);
 				double res = Interpolate(numy0, numy1, numy2); 
-				Result.Dispatcher.Invoke(new Action(delegate
-				{
-					Result.Text = res.ToString();
-					WpfPlot1.Reset();
-					double ymax = (res * res * (numy0 / 2 - numy1 + numy2 / 2) +res * (-numy0 / 2 + numy2 / 2) + numy1);
-					Console.WriteLine("x = " + res);
-					Console.WriteLine("y = " + ymax);
-					double[] dataX = { -1, 0, 1, res };
+				
+				Result.Text = res.ToString();
+				WpfPlot1.Reset();
+				double ymax = (res * res * (numy0 / 2 - numy1 + numy2 / 2) +res * (-numy0 / 2 + numy2 / 2) + numy1);
+				Console.WriteLine("x = " + res);
+				Console.WriteLine("y = " + ymax);
+				double[] dataX = { -1, 0, 1, res };
 
-					Array.Sort(dataX);
-					int arrayPos = Array.IndexOf(dataX, res);
-					double[] dataY = { numy0, numy1, numy2, ymax };
-					for (int i = 0; i < 4; i++)
-					{
-						Console.WriteLine(dataY[i]);
-					}
-					double nextVal = ymax;
-					for (int i = arrayPos; i < 4; i++)
-					{
-						double temp = dataY[i];
-						dataY[i] = nextVal;
-						nextVal = temp;
-					}
-					var sp = WpfPlot1.Plot.Add.Scatter(dataX, dataY);
-					sp.Smooth = true;
-					WpfPlot1.Refresh();
-				}));
+				Array.Sort(dataX);
+				int arrayPos = Array.IndexOf(dataX, res);
+				double[] dataY = { numy0, numy1, numy2, ymax };
+				for (int i = 0; i < 4; i++)
+				{
+					Console.WriteLine(dataY[i]);
+				}
+				double nextVal = ymax;
+				for (int i = arrayPos; i < 4; i++)
+				{
+					double temp = dataY[i];
+					dataY[i] = nextVal;
+					nextVal = temp;
+				}
+				var sp = WpfPlot1.Plot.Add.Scatter(dataX, dataY);
+				sp.Smooth = true;
+				WpfPlot1.Refresh();
+				
 			}
 		}
 	}
