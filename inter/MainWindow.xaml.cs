@@ -43,7 +43,7 @@ namespace inter
 		/// <summary>
 		/// calls Interpolate when text is changed and all inputs are valid doubles and then updates the output text
 		/// </summary>
-		private void y0_TextChanged(object sender, TextChangedEventArgs e)
+		private void Y0_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			TypeConverter inputcheck = TypeDescriptor.GetConverter(typeof(double));
 			if (inputcheck.IsValid(y0.Text) && inputcheck.IsValid(y1.Text) && inputcheck.IsValid(y2.Text))
@@ -51,7 +51,7 @@ namespace inter
 				double numy0 = Convert.ToDouble(y0.Text);
 				double numy1 = Convert.ToDouble(y1.Text);
 				double numy2 = Convert.ToDouble(y2.Text);
-				update(numy0, numy1, numy2);
+				Update(numy0, numy1, numy2);
 
 
 
@@ -60,7 +60,7 @@ namespace inter
 		/// <summary>
 		/// calls update function when text is changed and all text boxes contain valid doubles
 		/// </summary>
-		private void y1_TextChanged(object sender, TextChangedEventArgs e)
+		private void Y1_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			TypeConverter inputcheck = TypeDescriptor.GetConverter(typeof(double));
 			if (inputcheck.IsValid(y0.Text) && inputcheck.IsValid(y1.Text) && inputcheck.IsValid(y2.Text))
@@ -68,14 +68,14 @@ namespace inter
 				double numy0 = Convert.ToDouble(y0.Text);
 				double numy1 = Convert.ToDouble(y1.Text);
 				double numy2 = Convert.ToDouble(y2.Text);
-				update(numy0, numy1, numy2);
+				Update(numy0, numy1, numy2);
 
 			}
 		}
 		/// <summary>
 		/// calls Interpolate when text is changed and all inputs are valid doubles and then updates the output text
 		/// </summary>
-		private void y2_TextChanged(object sender, TextChangedEventArgs e)
+		private void Y2_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			TypeConverter inputcheck = TypeDescriptor.GetConverter(typeof(double));
 			if (inputcheck.IsValid(y0.Text) && inputcheck.IsValid(y1.Text) && inputcheck.IsValid(y2.Text))
@@ -83,7 +83,7 @@ namespace inter
 				double numy0 = Convert.ToDouble(y0.Text);
 				double numy1 = Convert.ToDouble(y1.Text);
 				double numy2 = Convert.ToDouble(y2.Text);
-				update(numy0, numy1, numy2);
+				Update(numy0, numy1, numy2);
 				
 				
 			}
@@ -94,7 +94,7 @@ namespace inter
 		/// <param name="y0">y value at x=-1</param>
 		/// <param name="y1">y value at x=0</param>
 		/// <param name="y2">y value at x=1</param>
-		private void update(double y0, double y1, double y2)
+		private void Update(double y0, double y1, double y2)
 		{
 			double x = Interpolate(y0, y1, y2);
 			Result.Text = x.ToString();
@@ -112,9 +112,8 @@ namespace inter
 			double nextVal = ymax;
 			for (int i = arrayPos; i < 4; i++)
 			{
-				double temp = dataY[i];
-				dataY[i] = nextVal;
-				nextVal = temp;
+				(dataY[i], nextVal) = (nextVal, dataY[i]);
+				
 			}
 
 			var sp = WpfPlot1.Plot.Add.Scatter(dataX, dataY);
