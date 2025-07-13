@@ -92,25 +92,16 @@ namespace inter
 			Result.Text = x.ToString();
 			WpfPlot1.Reset();
 			line(y0, y1, y2, x);
-			//double ymax = x * x * (y0 / 2 - y1 + y2 / 2) + x * (-y0 / 2 + y2 / 2) + y1;
 			
-			//double[] dataX = { -1, 0, 1, x };
-
-			//Array.Sort(dataX);
-			//int arrayPos = Array.IndexOf(dataX, x);
-			//double[] dataY = { y0, y1, y2, ymax };
-			
-			//double nextVal = ymax;
-			//for (int i = arrayPos; i < 4; i++)
-			//{
-			//	(dataY[i], nextVal) = (nextVal, dataY[i]);
-			//}
-
-			//var sp = WpfPlot1.Plot.Add.Scatter(dataX, dataY);
-			//sp.Smooth = true;
-			//WpfPlot1.Refresh();
 		}
-
+		/// <summary>
+		/// 
+		/// draw the line on the screen
+		/// </summary>
+		/// <param name="y0">y value at x=-1</param>
+		/// <param name="y1">y value at x=0</param>
+		/// <param name="y2">y value at x=1</param>
+		/// <param name="xmax">the x value of the max or min of y</param>
 		private void line(double y0, double y1, double y2, double xmax)
 		{
 			WpfPlot1.Reset();
@@ -130,10 +121,21 @@ namespace inter
 			{
 				dataX.Add(i);
 				dataY.Add(i * i * (y0 / 2 - y1 + y2 / 2) + i * (-y0 / 2 + y2 / 2) + y1);
+				dataY.Add(i * i * (y0 / 2 - y1 + y2 / 2) + i * (-y0 / 2 + y2 / 2) + y1);
 			}
 
-			var sp = WpfPlot1.Plot.Add.Scatter(dataX, dataY);
-			sp.Smooth = true;
+			var quadratic = WpfPlot1.Plot.Add.Scatter(dataX, dataY);
+			
+			quadratic.Smooth = true;
+			WpfPlot1.Refresh();
+			List<double> exDataX = new List<double> { -1, 0, 1, xmax };
+			List<double> exDataY = new List<double>();
+			foreach (double i in exDataX)
+			{
+				exDataY.Add(i * i * (y0 / 2 - y1 + y2 / 2) + i * (-y0 / 2 + y2 / 2) + y1);
+			}
+			var points = WpfPlot1.Plot.Add.ScatterPoints(exDataX, exDataY);
+			points.MarkerSize = 10;
 			WpfPlot1.Refresh();
 
 		}
