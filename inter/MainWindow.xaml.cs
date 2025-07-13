@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -90,24 +91,51 @@ namespace inter
 			double x = Interpolate(y0, y1, y2);
 			Result.Text = x.ToString();
 			WpfPlot1.Reset();
-
-			double ymax = x * x * (y0 / 2 - y1 + y2 / 2) + x * (-y0 / 2 + y2 / 2) + y1;
+			line(y0, y1, y2, x);
+			//double ymax = x * x * (y0 / 2 - y1 + y2 / 2) + x * (-y0 / 2 + y2 / 2) + y1;
 			
-			double[] dataX = { -1, 0, 1, x };
+			//double[] dataX = { -1, 0, 1, x };
 
-			Array.Sort(dataX);
-			int arrayPos = Array.IndexOf(dataX, x);
-			double[] dataY = { y0, y1, y2, ymax };
+			//Array.Sort(dataX);
+			//int arrayPos = Array.IndexOf(dataX, x);
+			//double[] dataY = { y0, y1, y2, ymax };
 			
-			double nextVal = ymax;
-			for (int i = arrayPos; i < 4; i++)
+			//double nextVal = ymax;
+			//for (int i = arrayPos; i < 4; i++)
+			//{
+			//	(dataY[i], nextVal) = (nextVal, dataY[i]);
+			//}
+
+			//var sp = WpfPlot1.Plot.Add.Scatter(dataX, dataY);
+			//sp.Smooth = true;
+			//WpfPlot1.Refresh();
+		}
+
+		private void line(double y0, double y1, double y2, double xmax)
+		{
+			WpfPlot1.Reset();
+			double start = -1;
+			double end = 1;
+			if (xmax < start)
 			{
-				(dataY[i], nextVal) = (nextVal, dataY[i]);
+				start = xmax;
+			}
+			else if (xmax > end) 
+			{
+				end = xmax;
+			}
+			List<double> dataX = new List<double>();
+			List<double> dataY = new List<double>();
+			for (double i = start; i < end; i += (end-start)/100)
+			{
+				dataX.Add(i);
+				dataY.Add(i * i * (y0 / 2 - y1 + y2 / 2) + i * (-y0 / 2 + y2 / 2) + y1);
 			}
 
 			var sp = WpfPlot1.Plot.Add.Scatter(dataX, dataY);
 			sp.Smooth = true;
 			WpfPlot1.Refresh();
+
 		}
 	}
 	
